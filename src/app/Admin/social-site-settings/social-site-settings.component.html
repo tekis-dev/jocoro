@@ -1,0 +1,40 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="page-height">
+  <div class="row">
+    <div class="col-sm-5 col-md-5 offset-md-3 offset-sm-3">
+      <mat-form-field>
+        <input matInput placeholder="Facebook Link" formControlName="f_link">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-5 col-md-5 offset-md-3 offset-sm-3">
+      <mat-form-field>
+        <input matInput placeholder="Twitter Link" formControlName="t_link">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-5 col-md-5 offset-md-3 offset-sm-3">
+      <mat-form-field>
+        <input matInput placeholder="Linkedin Link" formControlName="l_link">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-5 col-md-5 offset-md-3 offset-sm-3">
+      <mat-form-field>
+        <input matInput placeholder="Google Link" formControlName="g_link">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 text-center">
+      <button class="btn btn-sm btn-blue" type="submit">Submit</button>
+      <button class="btn btn-sm btn-blue" type="button" (click)="onCancel()">clear</button>
+    </div>
+  </div>
+</form>

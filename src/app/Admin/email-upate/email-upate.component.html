@@ -1,0 +1,24 @@
+<form [formGroup]="formEmail" style="height:500px">
+  <div class="row">
+    <div class="col-sm-3 col-md-3"></div>
+    <div class="col-sm-6 col-md-6">
+      <div class="row">
+        <mat-form-field>
+          <input id="from_email" placeholder="From email" formControlName="from_email" matInput required>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input id="to_email" placeholder="To email" formControlName="to_email" matInput required>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="col-sm12 col-md-12 text-center">
+          <button type="submit" class="btn btn-sm btn-default waves-light" mdbRippleRadius>Submit</button>
+          <button class="btn btn-sm btn-default waves-light" mdbRippleRadius>Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 col-md-3"></div>
+  </div>
+</form>

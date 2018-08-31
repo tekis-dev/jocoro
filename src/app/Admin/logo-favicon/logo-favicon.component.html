@@ -1,0 +1,54 @@
+<div style="height:500px">
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+      <div class="control-label">
+        Upload Logo
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <!-- <mat-form-field> -->
+      <input  type="file" accept=".jpg,.png,.jpeg,.gif" placeholder="upload file"
+      (change)="handleFileInput($event)"  #filelogo  style="display:none">
+      <button (click)="filelogo.click()" class="btn btn-sm btn-primary">Upload Logo</button>
+      
+      <!-- </mat-form-field> -->
+      <p class="help-block">
+        Allowed File type jpg | png | jpeg | gif 
+        <br/>Max File size is 2MB
+      </p>
+    </div>
+    <div class="col-sm-5 col-md-5">
+     <img [src]="logo_file" height="100px" *ngIf="logo_file !== null">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+      <div class="control-label">
+        Upload Favicon
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <!-- <mat-form-field> -->
+      <input  type="file" accept=".jpg,.png,.jpeg,.gif" placeholder="upload file"
+      (change)="handleFileInput_favicon($event)" #file  style="display:none">
+      <button (click)="file.click()" class="btn btn-sm btn-primary">Upload Favicon</button>
+      <!-- </mat-form-field> -->
+      <p class="help-block">
+        Allowed File type jpg | png | jpeg | gif 
+        <br/>Max File size is 2MB
+      </p>
+    </div>
+    <div class="col-sm-5 col-md-5">
+     <img [src]="favicon_file" height="100px" *ngIf="favicon_file !== null">
+    </div>
+    
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+
+      <div class="text-center">
+        <button class="btn btn-sm btn-blue" (click)="onSubmit()"> Submit</button>
+        <button class="btn btn-sm btn-blue" (click)="onCancel()"> Cancel</button>
+      </div>
+    </div>
+  </div>

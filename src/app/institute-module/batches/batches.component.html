@@ -1,0 +1,401 @@
+<!-- <div class="row">
+  <div class="col-sm-12 col-md-10 col-lg-10 offset-sm-0 offset-md-1 offset-lg-1">
+    <div class="card card-body"> -->
+
+<form [formGroup]="form" (ngSubmit)="onBatchSubmit()">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="block-header">
+        <strong>Course Details</strong>
+      </div>
+    </div>
+    <div class="col-sm-12 pt-1">
+      <div class="col-sm-12">
+        <mat-form-field>
+          <mat-select placeholder="Course" formControlName="course" required>
+            <mat-option *ngFor="let option of instiServObj.courseList" [value]="option.cid">
+              {{ option.course_name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!form.get('course').valid &&
+        (form.get('course').dirty || form.get('course').touched) ">
+            <span *ngIf="form.get('course').errors?.required">
+              Course required.
+            </span>
+
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-12">
+      <div class="block-header">
+        <strong>Faculty Details</strong>
+      </div>
+    </div>
+    <div class="col-sm-12 pt-1">
+      <div class="col-sm-12 ">
+        <mat-form-field>
+          <!-- <input matInput placeholder="Faculty Name" (change)="onFacultyChange($event)" formControlName="facName"> -->
+          <mat-select placeholder="Faculty Name" formControlName="facName" required>
+            <mat-option *ngFor="let option of instiServObj.facList" [value]="option.fid">
+              {{ option.faculty_name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!form.get('facName').valid &&
+          (form.get('facName').dirty || form.get('facName').touched) || submitFlag">
+            <span *ngIf="form.get('facName').errors?.required">
+              Faculty Name is required.
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- <div class="col-sm-12">
+        <mat-form-field>
+          <input matInput placeholder="Faculty Experience" formControlName="facExp" required>
+          <mat-error *ngIf="!form.get('facExp').valid &&
+        (form.get('facExp').dirty || form.get('facExp').touched) || submitFlag">
+            <span *ngIf="form.get('facExp').errors?.required">
+              Faculty Experience is required.
+            </span>
+            <span *ngIf="form.get('facExp').errors?.pattern">
+              Please Enter Valid Faculty Experience.
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div> -->
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-12">
+      <div class="block-header">
+        <strong>Batch Details</strong>
+      </div>
+    </div>
+    <div class="col-sm-12  pt-1">
+      <div class="col-sm-12 ">
+        <mat-form-field>
+          <input matInput placeholder="Batch Name" formControlName="batchName" name="name" autocomplete="off" required>
+          <mat-error *ngIf="!form.get('batchName').valid &&  (form.get('batchName').dirty || form.get('batchName').touched) || submitFlag">
+            <span *ngIf="form.get('batchName').errors?.required">
+              Batch Name is required.
+            </span>
+            <span *ngIf="form.get('batchName').errors?.pattern">
+              Please Enter Valid Batch Name.
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12">
+        <mat-form-field>
+          <mat-select placeholder="Training Mode" formControlName="teachMode" [(ngModel)]="t_mode" required multiple>
+            <mat-option *ngFor="let option of instiServObj.tech_mode" [value]="option.ct_id">
+              {{ option.course_type }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!form.get('teachMode').valid &&
+        (form.get('teachMode').dirty || form.get('teachMode').touched) || submitFlag">
+            <span *ngIf="form.get('teachMode').errors?.required">
+              Teaching Mode is required.
+            </span>
+            <span *ngIf="form.get('teachMode').errors?.pattern">
+              Please Enter Valid Teaching Mode.
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12">
+        <mat-form-field>
+          <mat-select placeholder="Session Type" formControlName="session" required>
+            <mat-option *ngFor="let option of masterObj.sessionType" [value]="option.sess_id">
+              {{ option.session_type }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!form.get('session').valid &&
+        (form.get('session').dirty || form.get('session').touched) || submitFlag">
+            <span *ngIf="form.get('session').errors?.required">
+              Session Type is required.
+            </span>
+            <span *ngIf="form.get('session').errors?.pattern">
+              Please Enter Valid Session Type.
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 pt-2">
+            <label class="control-label" for="group">Course duration
+              :<span style="color: red">*</span>
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-select placeholder="Months" formControlName="months" required>
+                <mat-option *ngFor="let option of months" [value]="option">
+                  {{ option }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-select placeholder="Days" formControlName="days" required>
+                <mat-option *ngFor="let option of days" [value]="option">
+                  {{ option }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- <mat-form-field>
+          <mat-select placeholder="Duration" formControlName="duration">
+            <mat-option *ngFor="let option of instiServObj.duration" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!form.get('duration').valid &&
+            (form.get('duration').dirty || form.get('duration').touched) || submitFlag">
+            <span *ngIf="form.get('duration').errors?.required">
+              Duration is required.
+            </span>
+            <span *ngIf="form.get('duration').errors?.pattern">
+              Please Enter Valid Duration.
+            </span>
+          </mat-error>
+        </mat-form-field> -->
+      </div>
+      <div class="col-sm-12">
+        <div class=" ">
+          <label class="control-label" for="fee">Course Fee
+            :<span style="color: red">*</span>
+          </label>
+          <mat-radio-group id="fee" class="example-radio-group" formControlName="fee" [(ngModel)]="Selectedfee" (change)="onfeeChange($event)"
+            required>
+            <mat-radio-button class="example-radio-button" *ngFor="let option of masterObj.feeTypes" [value]="option.fee_id">
+              {{ option.fee_name }}</mat-radio-button>
+            <!-- <mat-radio-button class="example-radio-button" value="1">Free</mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="2">Fixed</mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="3">Range</mat-radio-button> -->
+          </mat-radio-group>
+        </div>
+      </div>
+      <div class="col-sm-12" *ngIf="Selectedfee !== null">
+        <div class="col-sm-6 form-inline " *ngIf="Selectedfee === 2">
+          <mat-form-field>
+            <input matInput placeholder="amount" formControlName="fixed" (keypress)="commonServObj.onlyNumberKey($event)" required>
+            <mat-error *ngIf="(form.get('fixed').dirty || form.get('fixed').touched) || submitFlag">
+              <span *ngIf="form.get('fixed').errors?.required">
+                amount is required.
+              </span>
+              <span *ngIf="form.get('fixed').errors?.pattern">
+                Please Enter Valid amount.
+              </span>
+            </mat-error>
+          </mat-form-field>
+          <label class="control-label" for="group">
+            rupees
+          </label>
+        </div>
+        <div class="row form-inline" *ngIf="Selectedfee === 3">
+          <div class="col-sm-5">
+            <mat-form-field>
+              <input matInput placeholder="From Amount" formControlName="fromRange" (keypress)="commonServObj.onlyNumberKey($event)" (blur)="tofeeOnBlur()" required>
+              <mat-error *ngIf="!form.get('fromRange').valid &&
+        (form.get('fromRange').dirty || form.get('fromRange').touched) || submitFlag">
+                <span *ngIf="form.get('fromRange').errors?.required">
+                  Amount is required.
+                </span>
+                <span *ngIf="form.get('fromRange').errors?.pattern">
+                  Please Enter Valid Amount.
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-1">
+            <label class="control-label" for="group">
+              to
+            </label>
+          </div>
+          <div class="col-sm-5 form-inline">
+            <mat-form-field>
+              <input matInput placeholder="To Amount" formControlName="toRange" (keypress)="commonServObj.onlyNumberKey($event)" required (blur)="tofeeOnBlur()">
+              <mat-error *ngIf="(form.get('toRange').dirty || form.get('toRange').touched) || submitFlag">
+                <span *ngIf="form.get('toRange').errors?.required">
+                  Amount is required.
+                </span>
+                <span *ngIf="form.get('toRange').errors?.pattern">
+                  Please Enter Valid Amount.
+                </span>
+              </mat-error>
+            </mat-form-field>
+            <label class="control-label" for="group">
+              rupees
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input matInput maxlength="10" minlength="10" autocomplete="off" [matDatepicker]="startpicker"
+               placeholder="Course start date"
+                [(ngModel)]="startDt" formControlName="start" required>
+              <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+              <mat-datepicker #startpicker></mat-datepicker>
+              <mat-error *ngIf="!form.get('start').valid &&
+                    (form.get('start').dirty || form.get('start').touched) || submitFlag">
+                <span *ngIf="form.get('start').hasError('required')">
+                  Field is required.
+                </span>
+                <span *ngIf="form.get('start').errors?.dirty">
+                  Please Enter Valid Start date.
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-3">
+            <mat-form-field>
+              <input placeholder="From Time" matInput [(ngModel)]="c_startTime" autocomplete="off" [ngModelOptions]="{standalone: true}"
+                formControlName="c_startTime" [owlDateTimeTrigger]="sttime" [owlDateTime]="sttime" required>
+              <owl-date-time [pickerType]="'timer'" [pickerMode]="'dialog'" #sttime></owl-date-time>
+              <mat-error>
+                <span *ngIf="!form.get('c_startTime').errors?.dirty && form.get('c_startTime').errors?.required">
+                  Field is required.
+                </span>
+                <span *ngIf="form.get('c_startTime').errors?.dirty">
+                  Please Enter Valid Time.
+                </span>
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+          <div class="col-sm-3">
+
+            <mat-form-field>
+              <input matInput placeholder="To Time" [(ngModel)]="c_endTime" autocomplete="off" [ngModelOptions]="{standalone: true}" [owlDateTimeTrigger]="entime"
+                [min]="c_startTime" [owlDateTime]="entime" formControlName="c_endTime" required>
+              <owl-date-time [pickerType]="'timer'" [pickerMode]="'dialog'" #entime></owl-date-time>
+              <mat-error>
+                <span *ngIf="form.get('c_endTime').errors?.required">
+                  Field is required.
+                </span>
+                <span *ngIf="form.get('c_endTime').errors?.pattern">
+                  Please Enter Valid time,should be grater than fromtime
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-12">
+      <div class="block-header">
+        <strong>Demo Details</strong>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="col-sm-12">
+        <div class="row pt-2">
+          <div class="col-sm-3">
+            <mat-form-field>
+              <input matInput maxlength="10" minlength="10" autocomplete="off" [matDatepicker]="frompicker" placeholder="From date" [(ngModel)]="demostartDate"
+                formControlName="fromdt" required>
+              <mat-datepicker-toggle matSuffix [for]="frompicker"></mat-datepicker-toggle>
+              <mat-datepicker #frompicker></mat-datepicker>
+              <mat-error *ngIf="!form.get('fromdt').valid &&
+              (form.get('fromdt').dirty || form.get('fromdt').touched) || submitFlag">
+                <span *ngIf="form.get('fromdt').errors?.required">
+                  Field is required.
+                </span>
+                <span *ngIf="form.get('fromdt').errors?.pattern">
+                  Please Enter Valid Date.
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-3">
+            <!-- <input placeholder="to date" #todt/> -->
+            <mat-form-field>
+              <input matInput [(ngModel)]="Demotodt" autocomplete="off" [matDatepicker]="topicker" placeholder="To date" [min]="demostartDate"
+                formControlName="todt" required>
+              <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+              <mat-datepicker #topicker></mat-datepicker>
+              <mat-error *ngIf="!form.get('todt').valid &&
+                          (form.get('todt').dirty || form.get('todt').touched) || submitFlag">
+                <span *ngIf="form.get('todt').errors?.required">
+                  Field is required.
+                </span>
+                <span *ngIf="form.get('todt').errors?.pattern">
+                  Please Enter Valid date & should be grater than fromdate.
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-3">
+            <mat-form-field>
+              <input placeholder="From Time" matInput [(ngModel)]="demostartTime" autocomplete="off" [ngModelOptions]="{standalone: true}"
+                formControlName="demostartTime" [owlDateTimeTrigger]="dtstime" [owlDateTime]="dtstime" required>
+              <owl-date-time [pickerType]="'timer'" [pickerMode]="'dialog'" #dtstime></owl-date-time>
+              <mat-error>
+                <span *ngIf="form.get('demostartTime').errors?.required">
+                  Field is required.
+                </span>
+                <span *ngIf="form.get('demostartTime').errors?.pattern">
+                  Please Enter Valid time.
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-3">
+            <mat-form-field>
+              <input placeholder="To Time" matInput [(ngModel)]="demoendTime" autocomplete="off" [ngModelOptions]="{standalone: true}"
+                [min]="demostartTime" formControlName="demoendTime" [owlDateTimeTrigger]="dtetime" [owlDateTime]="dtetime"
+                required>
+              <owl-date-time [pickerType]="'timer'" [pickerMode]="'dialog'" #dtetime></owl-date-time>
+              <mat-error>
+                <span *ngIf="form.get('demoendTime').errors?.required">
+                  Filed is required.
+                </span>
+                <span *ngIf="form.get('demoendTime').errors?.pattern">
+                  Please Enter Valid time,should be grater than fromtime
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-12">
+      <div class="block-header">
+        <strong>Course Content</strong>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="col-sm-12">
+        <!-- <mat-form-field>
+          <textarea matInput placeholder="About Course"></textarea> 
+          
+        </mat-form-field> -->
+        <label class="control-label" for="fee">About Course:
+          <!-- <span style="color: red">*</span>: -->
+        </label>
+        <ckeditor [(ngModel)]="ckeditorContent" aria-placeholder="about course" formControlName="about" [readonly]="form.disabled"
+          [config]="ckEditorConfig" debounce="500">
+        </ckeditor>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-12 text-center">
+      <button mat-button class="btn btn-md btn-color m-2" [hidden]="form.disabled" type="button" (click)="onCancel()">Cancel</button>
+      <button mat-button class="btn btn-md btn-color" [hidden]="form.disabled" type="submit">{{ btnText }}</button>
+    </div>
+  </div>
+</form>

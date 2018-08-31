@@ -1,0 +1,17 @@
+<ng-progress [color]="'blue'" [trickleSpeed]="250" [showSpinner]="false" [thick]="true" [ease]="'linear'"></ng-progress>
+<div *ngIf="progress.state | async; let state">
+
+
+    <!-- Modal content-->
+    <div *ngIf="state.active">
+
+        <div class="show">
+
+            <mat-spinner *ngIf="state.active" mode="determinate" [value]="state.value"></mat-spinner>
+        </div>
+
+
+    </div>
+
+</div>
+<router-outlet></router-outlet>

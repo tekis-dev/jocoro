@@ -1,0 +1,111 @@
+<div class="page-height ">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+      <div class="card card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-select placeholder="Course" [(ngModel)]="course">
+                <mat-option *ngFor="let option of course_options" [value]="option.id">
+                  {{ option.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-select placeholder="Status" [(ngModel)]="status">
+                <mat-option *ngFor="let option of status_options" [value]="option.id">
+                  {{ option.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- <input placeholder="from date" id="fromdt" #fromdt/>
+             -->
+            <mat-form-field>
+              <input matInput [min]="minDate" [max]="maxDate" maxlength="10" minlength="10" [matDatepicker]="frompicker" placeholder="From date"
+                [(ngModel)]="fromdt">
+              <mat-datepicker-toggle matSuffix [for]="frompicker"></mat-datepicker-toggle>
+              <mat-datepicker #frompicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <!-- <input placeholder="to date" #todt/> -->
+            <mat-form-field>
+              <input matInput [min]="minDate" [max]="maxDate" [(ngModel)]="todt" [matDatepicker]="topicker" placeholder="To date">
+              <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+              <mat-datepicker #topicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <button mat-button class="btn btn-md btn-register btn-color" (click)="onSearch()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+      <div class="card card-body">
+        <div class="row">
+          <div class="col-sm-6 col-md-9"></div>
+          <div class="col-sm-6 col-md-3">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <mat-table #table [dataSource]="dataSource" class="mat-cell table-hover">
+              <!-- displayedColumns = ['id', 'course', 'date', '', 'description', 'email','mobile', 'status'] -->
+
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef style="flex: 0.5 0 20px"> Enquiry ID </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex: 0.5 0 20px"> {{element.id}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="course" >
+                <mat-header-cell *matHeaderCellDef style="flex: 0.5 0 20px"> Course </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex: 0.5 0 20px"> {{element.course}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef style="flex: 0.5 0 20px"> Enquiry Date </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex: 0.5 0 20px"> {{ element.date | date:'yyyy-MM-dd' }} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef style="flex: 0.5 0 20px"> Description </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex: 0.5 0 20px"> {{element.description}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef style="flex: 0.5 0 20px"> Email Address </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex: 0.5 0 20px"> {{element.email}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="mobile">
+                <mat-header-cell *matHeaderCellDef style="flex: 0.5 0 20px"> Mobile </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex: 0.5 0 20px"> {{element.mobile}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef style="flex: 0.5 0 20px"> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex: 0.5 0 20px"> {{element.status}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

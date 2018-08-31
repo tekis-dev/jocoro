@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12 col-md-10 col-lg-10 offset-sm-0 offset-md-1 offset-lg-1">
+    <div class="card card-body pt-2">
+      <div class="row pb-2">
+        <div class="col-sm-12 col-md-12">
+          <!-- <h3>About Institute:</h3> -->
+          <button class="btn btn-sm btn-color" (click)="goBack()">Back</button>
+          <button class="btn btn-sm btn-color pull-right" (click)="onEdit(batchForm)" [hidden]="form.form.enabled">
+            Edit
+            <!-- <mat-icon aria-label="Edit">edit</mat-icon> -->
+          </button>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="row pt-2">
+        <div class="col-sm-12">
+          <app-batches #batchForm></app-batches>
+        </div>
+      </div>
+      <!-- <div class="col-sm-12 text-center">
+        <button class="btn btn-md-btn-register" (click)="onUpdate(batchForm)">Update</button>
+      </div> -->
+    </div>
+  </div>
+</div>

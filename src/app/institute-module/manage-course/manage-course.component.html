@@ -1,0 +1,97 @@
+<div class="page-height">
+  <div class="row">
+    <div class="col-sm-12 ">
+      <div class="card card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="">
+              <div class="row p-1">
+                <div class="col-sm-8 pt-3">
+                  <!-- <strong>Faculty Details</strong> -->
+                  <!-- <button class="btn btn-md btn-register">Add Course</button> -->
+                  <a mat-button type="button" routerLink="/institute/add-course">Add Course</a>
+                </div>
+                <div class="col-sm-4">
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" #filter>
+                    <button mat-button *ngIf="filter.value" matSuffix mat-icon-button aria-label="Clear" (click)=" applyFilter(filter.value='')">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 pt-3">
+            <mat-table #table [dataSource]="dataSource" matSort>
+              <!-- displayedColumns = ['id', 'course_name', 'sub_courses', 'views', 'interested', 'action'] -->
+
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> S.No </mat-header-cell>
+                <mat-cell *matCellDef="let element;let i=index;"> {{ paginator == undefined ? (i+1) : ((paginator.pageSize)*(paginator.pageIndex) +(i+1)) }} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="course_name">
+                <mat-header-cell *matHeaderCellDef> Course Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.course_name}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="sub_courses">
+                <mat-header-cell *matHeaderCellDef> Sub Courses </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.sub_courses }} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="views">
+                <mat-header-cell *matHeaderCellDef> Views </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.views}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="interested">
+                <mat-header-cell *matHeaderCellDef> Interested Candidates </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.interested}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="created_at">
+                <mat-header-cell *matHeaderCellDef> Created Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.created_at | date: 'dd-MMMM-yyyy'}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+                <!-- style="flex: .5 0 80px;" -->
+                <mat-cell *matCellDef="let row; let i=index;">
+                  <span *ngIf="row.is_active;else active" matTooltip=" Click here to Deactivate">
+                    <button mat-icon-button color="accent" (click)='onDeactivate(row,i)'>
+                      <i class="fa fa-check ">
+                      </i>
+                      <!-- <mat-icon aria-label="person_add_disabled">person_add_disabled</mat-icon> -->
+                    </button>
+                  </span>
+                  <ng-template #active>
+                    <span>
+                      <button mat-icon-button color="accent" (click)='onActivate(row,i)' matTooltip=" Click here to Activate">
+                        <i class="fa fa-times">
+                        </i>
+                        <!-- <mat-icon aria-label="person_add_disabled">person_add_disabled</mat-icon> -->
+                      </button>
+                    </span>
+                  </ng-template>
+                  <button mat-icon-button color="accent" (click)="onEdit(row,i)" matTooltip="Click here to View Details">
+                    <!-- <mat-icon aria-label="View">remove_red_eye</mat-icon> -->
+                    <i class="fa fa-eye">
+                    </i>
+                  </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

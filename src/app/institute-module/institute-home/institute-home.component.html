@@ -1,0 +1,21 @@
+<app-topbar (sidebarToggle)="snav.toggle()"></app-topbar>
+
+
+<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" 
+    fixedTopGap="0" [opened]="!mobileQuery.matches && sideFlag" >
+        <app-leftnavbar [hidden]="masterObj.navtoggle" ></app-leftnavbar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="content-wrapper">
+            <app-breadcrumb></app-breadcrumb>
+            <section class="content">
+                <router-outlet></router-outlet>
+            </section>
+
+        </div>
+
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

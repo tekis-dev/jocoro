@@ -1,0 +1,28 @@
+<!-- <app-header></app-header>
+<header>
+  <div >
+    <app-navbar></app-navbar>
+  </div>
+</header>
+
+<main style="padding-top: 1.5rem !important;">
+  <div [class]=" (!this.authgaurdObj.loggedin) ? 'login' : 'container-fluid mt-5' ">
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main> -->
+<app-topbar></app-topbar>
+<app-leftnavbar></app-leftnavbar>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <app-breadcrumb></app-breadcrumb>
+    <!-- Main content -->
+    <section class="content">
+        <router-outlet></router-outlet>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<app-footer></app-footer>

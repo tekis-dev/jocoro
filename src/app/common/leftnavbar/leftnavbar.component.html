@@ -1,0 +1,63 @@
+<aside class="">
+    <section class="sidebar pt-3">
+        <ul class="sidebar-menu" >
+                <li class="treeview" *ngFor="let item of commonObj.presentMenu"
+                routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <a [routerLink]="item.url">
+                            <i [ngClass]="item.icon"></i>
+                            <!-- <img [src]="item.icon"> -->
+                            <span>{{item.menuName}}</span>
+                        </a>
+                    </li>
+     <!--
+            <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/institute/institute-dashboard">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/institute/institute-edit">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Institute Profile</span>
+                </a>
+            </li>
+
+            <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/institute/faculty Details">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Faculty Details</span>
+                </a>
+            </li>
+
+            <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/institute/manage-course">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Manage Course</span>
+                </a>
+            </li>
+
+            <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/institute/batches-list">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Batches</span>
+                </a>
+            </li>
+
+            <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/institute/add-photos">
+                    <i class="fa fa-edit"></i>
+                    <span>Gallery</span>
+                </a>
+            </li>
+        -->
+                      <!-- <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLink="/institute/enquiries">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Enquiry</span>
+                        </a>
+                    </li> -->
+        </ul>
+    </section>
+</aside>

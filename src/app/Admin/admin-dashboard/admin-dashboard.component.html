@@ -1,0 +1,165 @@
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-sm-4 col-md-4">
+      <div class="card form-inline">
+        <div class="widget-icon pull-left fa fa-user bg-blue ">
+          <!-- <i class="fa fa-user fa-4x" aria-hidden="true"></i> -->
+        </div>
+        <div>
+          <label>111 Registered Job Seekers
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-4">
+      <div class="card form-inline">
+        <div class="widget-icon pull-left fa fa-users bg-blue ">
+          <!-- <i class="fa fa-user fa-4x" aria-hidden="true"></i> -->
+        </div>
+        <div>
+          <label>111 Registered Job Seekers
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-4 ">
+      <div class="card form-inline">
+        <div class="widget-icon pull-left fa fa-list-alt bg-blue ">
+          <!-- <i class="fa fa-user fa-4x" aria-hidden="true"></i> -->
+        </div>
+        <div>
+          <label>111 Registered Job Seekers
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <mat-toolbar class="unique-color" style="margin-top:15px">
+        <span>Total Payment</span>
+      </mat-toolbar>
+      <mat-table #table [dataSource]="payment_dataSource" class="mat-cell">
+        <!-- 'NO', 'Name', 'Email', 'Industries', 'Functional_Name', 'Job Role', 'Registered On' -->
+        <ng-container matColumnDef="pay_emp">
+          <mat-header-cell *matHeaderCellDef> Employer </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.pay_emp}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pay_seeker">
+          <mat-header-cell *matHeaderCellDef> Job Seeker </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.pay_seeker}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pay_tot">
+          <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.pay_tot}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="payment_displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: payment_displayedColumns;"></mat-row>
+      </mat-table>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <mat-toolbar class="unique-color" style="margin-top:15px">
+        <span>LATEST JOB SEEKER</span>
+      </mat-toolbar>
+      <div class="example-container mat-elevation-z8">
+
+        <mat-table #table [dataSource]="dataSource" class="mat-cell">
+          <!-- 'NO', 'Name', 'Email', 'Industries', 'Functional_Name', 'Job Role', 'Registered On' -->
+          <ng-container matColumnDef="NO">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.No}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Email}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Industries">
+            <mat-header-cell *matHeaderCellDef> Industries </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Industries}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Functional_Name">
+            <mat-header-cell *matHeaderCellDef> Functional Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Functional_Name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Job_Role">
+            <mat-header-cell *matHeaderCellDef> Job Role </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Job_Role}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Registered_On">
+            <mat-header-cell *matHeaderCellDef> Registered On </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Registered_On}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <mat-toolbar class="unique-color" style="margin-top:15px">
+        <span>LATEST Employer</span>
+      </mat-toolbar>
+      <div class="example-container mat-elevation-z8">
+
+        <mat-table #table [dataSource]="dataSource" class="mat-cell">
+          <!-- 'NO', 'Name', 'Email', 'Industries', 'Functional_Name', 'Job Role', 'Registered On' -->
+          <ng-container matColumnDef="NO">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.No}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Email}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Industries">
+            <mat-header-cell *matHeaderCellDef> Industries </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Industries}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Functional_Name">
+            <mat-header-cell *matHeaderCellDef> Functional Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Functional_Name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Job_Role">
+            <mat-header-cell *matHeaderCellDef> Job Role </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Job_Role}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Registered_On">
+            <mat-header-cell *matHeaderCellDef> Registered On </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Registered_On}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</div>
