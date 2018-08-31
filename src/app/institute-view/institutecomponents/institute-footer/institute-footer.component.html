@@ -1,0 +1,28 @@
+<div class="container-fluid jumbotron institute-footer">
+    <div class="row text-centered">
+        <div class="col-md-4 col-sm-4 col-lg-4 address text-center">
+            <h5>Address :</h5>
+            <p *ngIf="instiServObj.InstituteDetails.door_no">{{ instiServObj.InstituteDetails.door_no }},</p>
+            <p *ngIf="instiServObj.InstituteDetails.street">{{ instiServObj.InstituteDetails.street }},</p>
+            <p *ngIf="instiServObj.InstituteDetails.area">{{ instiServObj.InstituteDetails.area }},</p>
+            <p *ngIf="instiServObj.InstituteDetails.landmark">{{ instiServObj.InstituteDetails.landmark }},</p>
+            <p *ngIf="instiServObj.InstituteDetails.city_name">{{ instiServObj.InstituteDetails.city_name }},</p>
+            <p *ngIf="instiServObj.InstituteDetails.state_name">{{ instiServObj.InstituteDetails.state_name }}-{{ instiServObj.InstituteDetails.pincode }},</p>
+            <p *ngIf="instiServObj.InstituteDetails.country_name">{{ instiServObj.InstituteDetails.country_name }}.</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4 contact text-center">
+            <h5>Contact Us :</h5>
+            <ul>
+                <li *ngIf="instiServObj.InstituteDetails.email"><b>Email : </b>{{ instiServObj.InstituteDetails.door_no }}</li>
+                <li *ngIf="instiServObj.InstituteDetails.mobile_no"><b>Mobile No. : </b>{{ instiServObj.InstituteDetails.mobile_no }}<br>{{ instiServObj.InstituteDetails.mobile_no2 }}</li>
+            </ul>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4 social text-center clearfix">
+            <h5>Connect With Us :</h5>
+            <a *ngIf="instiServObj.InstituteDetails.web_site" [href]="instiServObj.InstituteDetails.web_site" target="_blank"><i id="social-fb" class="fa fa-globe fa-3x social"></i></a>
+            <a *ngIf="instiServObj.InstituteDetails.gplus" [href]="instiServObj.InstituteDetails.gplus" target="_blank"><i id="social-gp" class="fa fa-google-plus fa-3x social"></i></a>
+            <a *ngIf="instiServObj.InstituteDetails.fb_page" [href]="instiServObj.InstituteDetails.fb_page" target="_blank"><i id="social-em" class="fa fa-facebook fa-3x social"></i></a>
+        </div>
+    </div>
+</div>
+<br>

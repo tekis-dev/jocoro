@@ -1,0 +1,87 @@
+<div class="page-height ">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="pull-right">
+        <input type="file" accept=".jpg,.png,.jpeg" placeholder="upload file" (change)="handleFileInput($event)" #filelogo style="display:none"
+          multiple>
+        <button type="button" (click)="filelogo.click()" mat-button class="btn btn-sm btn-color ">Add Photos</button>
+        <p class="help-block">
+          <small> Allowed File type jpg | png | jpeg
+          </small>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1" *ngIf="logo_file.length">
+      <div class="card card-body">
+        <div class="row pt-2">
+          <div class="col-sm-12 col-md-12 ">
+            <div class="row">
+              <div class="col-sm-12 pb-2">
+                 
+                <span class="alert" style="color: red">
+                      * 
+                    </span> Please click on image to update title of it.
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center" *ngFor="let img of logo_file;let i= index ">
+                <div class="gallery">
+                  <span (click)="onclear(img.id)" class="pull-right" matTooltip="click here to delete image">
+                    <i class="fa fa-times-circle"></i>
+                  </span>
+                  <img [src]="img.image" height="100px" (click)="openPopUp(img.id)" matTooltip="click here see full image">
+                  <div class="desc"> {{ img.title }}
+
+                    <mat-divider *ngIf="i == 4 || i == 8"></mat-divider>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="imgModal" class="modal" role="dialog">
+  <div class="modal-dialog modal-md">
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button (click)="onImgModalclose()" class="close">
+          <span>&times;</span>
+        </button>
+        <img [src]="popImg" *ngIf="popImg !== null">
+        <div class="inputWidth pt-2">
+          <mat-form-field>
+            <input [(ngModel)]="popUpTitle" matInput placeholder="Title of image" maxlength="25"
+              (keypress)="commonserObj.withspace($event)" >
+          </mat-form-field>
+          <button type="button" class="btn btn-md pull-right" value="UpDate" (click)="submitTitle(popId)">
+            Update title
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="titleModal" class="modal" role="dialog">
+  <div class="modal-dialog modal-md">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <button (click)="ontitleModalclose()" class="close">
+          <span>&times;</span>
+        </button>
+        <!-- <img [src]="img"> -->
+        <mat-form-field>
+          <input [(ngModel)]="popUpTitle" matInput placeholder="Title of image" [hidden]="true">
+        </mat-form-field>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-md pull-right" value="Upload" [hidden]="true" (click)="submitTitle(popId)" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="text-center panel-body" *ngIf="!galleryDetailsList.length; else GalleryElseBlock">
+    No Gallery Found...
+</div>
+<ng-template #GalleryElseBlock>
+    <div class="container gallery-list">
+        <ul class="course-list">
+            <li class="course-item" *ngFor="let galleryItem of galleryDetailsList">
+                <div class="course-img-wrapper">
+                    <img [src]="galleryItem.img_file_name" class="img-responsive" [alt]="galleryItem.img_file_name">
+                </div>
+                <div class="title">
+                    <h3>{{galleryItem.title}}</h3>
+                </div>
+            </li>
+        </ul>
+    </div>
+</ng-template>

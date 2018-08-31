@@ -1,0 +1,73 @@
+<div class="container hostel-facilites-data">
+    <div class="row pt20">
+        <div class="col-md-8">
+            <hostel-contact-details></hostel-contact-details>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="row clearfix pt20">
+        <div class="col-md-12 panel-body" style="padding-right:0px">
+            <h4 id="gallery ">
+                <u>Gallery</u> :
+            </h4>
+            <div class="mb20 clearfix">
+                <button *ngIf='galleryDetailsList.length>4' [routerLink]="['../gallery']" class="btn btn-info pull-right">
+          See All
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </button>
+            </div>
+            <div *ngIf="!galleryDetailsList.length; else GalleryElseBlock" class="text-center">No Gallery Found...</div>
+            <ng-template #GalleryElseBlock>
+                <ul class="course-list">
+                    <ng-container *ngFor="let galleryItem of galleryDetailsList; let i=index">
+
+                        <li class="course-item " *ngIf="i<4">
+                            <div class="course-img-wrapper">
+                                <img [src]="galleryItem.img_file_name" class="img-responsive" [alt]="galleryItem.img_file_name">
+                            </div>
+                            <div class="title ">
+                                <h3>{{galleryItem.title}}</h3>
+                            </div>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-template>
+
+        </div>
+    </div>
+    <h4 class="pt20" id="facilities">
+        <u>Facilities</u> :
+    </h4>
+    <hostel-facilities></hostel-facilities>
+
+    <div class="row pt20" id="price">
+        <div class="col-md-6 col-sm-6">
+            <h4>
+                <u>Price</u> :
+            </h4>
+            <hostel-price></hostel-price>
+        </div>
+        <div class="col-md-6 col-sm-6 " id="availability">
+            <h4>
+                <u>Availability</u> :
+            </h4>
+            <hostel-availability></hostel-availability>
+        </div>
+    </div>
+
+    <div class="row pt20" id="food">
+        <div class="col-md-6 col-sm-6 ">
+            <h4>
+                <u>Food</u> :
+            </h4>
+            <hostel-food></hostel-food>
+        </div>
+        <div class="col-md-6 col-sm-6 ">
+            <h4><u>Food Timings</u></h4>
+            <hostel-food-times></hostel-food-times>
+        </div>
+    </div>
+
+</div>

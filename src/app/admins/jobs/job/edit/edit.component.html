@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-12 col-md-10 col-lg-10 offset-sm-0 offset-md-1 offset-lg-1">
+    <div class="card card-body">
+
+      <div class="row pb-2">
+        <div class="col-sm-12 col-md-12 pull-right">
+          <!-- <h3>About Institute:</h3> -->
+          <!-- <button class="btn btn-sm btn-color" (click)="goBack()">Back</button> -->
+          <button class="btn btn-sm btn-color pull-right" (click)="onEdit(jobform)" [hidden]="jobform.form.enabled">
+            Edit
+            
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <app-form (evt)="onUpdate($event)" (cancel)="onCancel($event)" #jobform></app-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

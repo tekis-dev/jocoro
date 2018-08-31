@@ -1,0 +1,78 @@
+<div class="page-height ">
+  <div class="row ">
+    <div class="col-sm-12 ">
+      <div class="card card-body">
+        <div class="row">
+          <div class="col-sm-12">        
+              <div class="row p-1">
+                <div class="col-sm-8 pt-3">
+                  <a mat-button type="button" routerLink="../add">Add Job</a>
+                </div>
+                <div class="col-sm-4">
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" #filter>
+                    <button mat-button *ngIf="filter.value" matSuffix mat-icon-button aria-label="Clear" (click)=" applyFilter(filter.value='')">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </mat-form-field>
+                </div>
+              </div>           
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-sm-12">
+            <mat-table [dataSource]="dataSource" class="table-hover" matSort>
+              
+              <ng-container matColumnDef="jobid">
+                <mat-header-cell *matHeaderCellDef> Job Id </mat-header-cell>
+                <mat-cell *matCellDef="let element; let i=index;"> {{element.jobId}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef> Job Title </mat-header-cell>
+                <mat-cell *matCellDef="let element;"> {{ element.job_title }} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="exp_type">
+                <mat-header-cell *matHeaderCellDef> Exp. Type </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.experiance_type ==0 ? 'Fresher' : 'Experienced' }} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="postdate">
+                <mat-header-cell *matHeaderCellDef> Posted Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.post_date | date:'dd-MMMM-yyyy'}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="lastdate">
+                <mat-header-cell *matHeaderCellDef> Last Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.lastdate_flag == 1 ? 'ASAP' : (element.last_date | date:'dd-MMMM-yyyy') }} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="job_location">
+                <mat-header-cell *matHeaderCellDef> Job Location </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.job_location }} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+                <mat-cell *matCellDef="let row; let i=index;">
+                  <span *ngIf="row.is_active;else active">
+                    <button mat-icon-button color="accent" (click)='onDeactivate(row,i)' matTooltip="Click here to Deactivate">
+                      <i class="fa fa-check">       </i>
+                    </button>
+                  </span>
+                  <ng-template #active>
+                    <button mat-icon-button color="accent" (click)='onActivate(row,i)' matTooltip="Click here to Activate">
+                      <i class="fa fa-times">                  </i>
+                    </button>
+                  </ng-template>
+                  <button mat-icon-button color="accent" (click)="onEdit(row,i)" matTooltip="Click here to View Details">
+                    <i class="fa fa-eye">   </i>
+                  </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+
+body {
+    background: #FFF !important;
+    height: 100%;
+    width: 100%;
+    font-weight: 500 !important;
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px !important;
+    color: #666666;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+}
+
+button {
+    margin-right: 1em;
+  }

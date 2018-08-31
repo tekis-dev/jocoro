@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <label>Contact Number : </label>
+            <strong>XXXXX-XXXXX</strong>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <label>Social Connect</label>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <a [routerLink]="['/dashboard']">Login</a>
+        </div>
+    </div>
+</div>
+<!-- <header>
+    <nav class="jobsmarg-navbar jobsmarg-navbar-default  b-shadow">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+                <div class="logo">
+                    <!-- Navigation Logo Link --
+                    <a href="#home" class="scroll">
+                        <!-- Your Logo --
+                        <img src="images/logo.png" class="site_logo" alt=" Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a [routerLink]="['/']" class="dropdown-toggle" data-hover="dropdown" data-delay="100">Home</a>
+                    </li>
+                    <!-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="100"> About US <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#">History</a></li>
+                          <li><a href="#">Vision</a></li>
+                          <li><a href="#">Services</a></li>
+                          <li><a href="#">Features</a></li>
+                      </ul>
+                  </li> --
+                    <li>
+                        <a href="#">Jobs</a>
+                    </li>
+                    <li>
+                        <a href="#">Institutes & courses</a>
+                    </li>
+                    <li>
+                        <a href="#">Hostels & Accomdations</a>
+                    </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Register</a>
+                    </li>
+                    <!-- <li><a href="#">Contact</a></li> --
+                </ul>
+
+            </div>
+            <!--/.nav-collapse --
+        </div>
+    </nav>
+</header> -->
+
+
+<header id="home">
+    <nav class="navbar navbar-expand-lg navbar-light  bg-light  mb-3">
+
+        <a class="navbar-brand">
+            <!-- <img [src]="instiServObj.url + '/images/' + instiServObj.InstituteDetails.logo" [alt]="instiServObj.InstituteDetails.institute_name" class="institute-logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/']">Home</a>
+                </li>
+                <!-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="100"> About US <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Vision</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Features</a></li>
+                        </ul>
+                    </li> -->
+                <li class="nav-item"><a class="nav-link">Jobs</a></li>
+                <li class="nav-item"><a class="nav-link">Institutes & courses</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="[ '/hostel' ]">Hostels & Accomdations</a></li>
+                <li class="nav-item"><a class="nav-link">Login</a></li>
+                <li class="nav-item"><a class="nav-link">Register</a></li>
+                <!-- <li><a href="#">Contact</a></li> -->
+            </ul>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,42 @@
+<div class="container batch-list">
+    <div class="text-center panel-body" *ngIf="!batchList.length; else BatchElseBlock">
+        No Batches Found...
+    </div>
+    <ng-template #BatchElseBlock>
+        <div class=''>
+            <label>search by:</label>
+            <select (change)="onCourseDrpChange($event.target.value)">
+                                        <option value="All">ALL</option>
+                                        <option *ngFor="let course of instiServObj.CourseDetails" [value]="course.course_name">{{ course.course_name }}</option>
+                                    </select>
+        </div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>S.No</th>
+                <th>Batch Name</th>
+                <th>Course</th>
+                <th>Faculty Name</th>
+                <th>Teaching Mode</th>
+                <th>Session</th>
+                <th>Starting on</th>
+                <th>Demo's on</th>
+                <th>Status</th>
+                <th>View Details</th>
+            </tr>
+
+            <tr *ngFor="let batch of filteredBatchesOptions; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{batch.batch_name}}</td>
+                <td>{{batch.course_name}}</td>
+                <td>{{batch.faculty_name}}</td>
+                <td>{{ techdeatils(batch.teaching_mode) }}</td>
+                <td>{{batch.session_name}}</td>
+                <td>{{batch.startson}} {{batch.from_time}} - {{batch.to_time}}</td>
+                <td>{{batch.demo_from_date}} to {{batch.demo_to_date}}</td>
+                <td>{{batch.status}}</td>
+                <td (click)="onBatchDetails(batch.bid)"><i class="fa fa-eye"></i></td>
+            </tr>
+        </table>
+    </ng-template>
+
+</div>

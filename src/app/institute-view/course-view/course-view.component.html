@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="text-center panel-body" *ngIf="!instiServObj.CourseDetails.length; else CourseElseBlock">
+        No Courses Found...
+    </div>
+    <ng-template #CourseElseBlock>
+
+        <ul class="course-list">
+            <li class="course-item" *ngFor="let courseItem of instiServObj.CourseDetails">
+                <div class="course-img-wrapper">
+                    <img [src]="instiServObj.url + '/images/' + courseItem.course_logo" class="img-responsive" [alt]="courseItem.course_name">
+                    <div class="view">
+                        <a (click)=onCourseView(courseItem.cid,courseItem.course_name) class="view-details">View</a>
+                        <!-- <a href="institute-course-enroll.html" class="view-details">Enroll</a> -->
+                    </div>
+                </div>
+                <div class="title">
+                    <h3><a (click)=onCourseView(courseItem.cid,courseItem.course_name)>{{courseItem.course_name}}</a></h3>
+                </div>
+                <div class="sticker sticker-new"></div>
+            </li>
+
+        </ul>
+    </ng-template>
+</div>

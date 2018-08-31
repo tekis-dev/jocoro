@@ -1,0 +1,76 @@
+<!-- <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img [src]="instiServObj.InstituteDetails.logo" [alt]="instiServObj.InstituteDetails.institute_name" class="institute-logo">
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['about']">About</a>
+                </li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+                    <a [routerLink]="['course']">Courses</a>
+                </li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['batch']">Batches</a>
+                </li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['gallery']">Gallery</a>
+                </li>
+
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['enquiry']">Enquiry</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</nav> -->
+
+
+
+
+<nav class="navbar navbar-expand-lg bg-light navbar-intitute mb-3">
+
+    <a class="navbar-brand">
+        <img [src]="instiServObj.url + '/images/' + instiServObj.InstituteDetails.logo" [alt]="instiServObj.InstituteDetails.institute_name" class="institute-logo">
+    </a>
+    <div class="upper-case"><span>{{ instiServObj.InstituteDetails.institute_name }}</span></div>
+    <button class="navbar-toggler" type="button" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" [routerLink]="['about']">About</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+                <a class="nav-link" [routerLink]="['course']">Courses</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" [routerLink]="['batch']">Batches</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" [routerLink]="['gallery']">Gallery</a>
+            </li>
+
+            <!-- <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" [routerLink]="['enquiry']">Enquiry</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" [routerLink]="['../../institute/']">Dashboard</a>
+            </li> -->
+        </ul>
+    </div>
+</nav>

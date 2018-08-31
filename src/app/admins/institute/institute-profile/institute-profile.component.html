@@ -1,0 +1,163 @@
+<div class="row">
+  <div class="col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+    <div class="card card-body">
+      <div class="row p-2">
+        <div class="col-sm-12 pull-right">
+          <!-- 
+            <button class="btn btn-sm p -0 pull-right" (click)="onedit(regForm)" [hidden]="form.Institute_form.enabled">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+            </button> 
+          -->
+        </div>
+      </div>
+      <app-institute-registration #regForm (submitEvent)="onRegistrationUpdate($event)" (btnCancel)='onCancel()'></app-institute-registration>
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div class="text-center">
+            <!-- <button mat-button class="btn btn-md btn-color" (click)="onUpdate(regForm)" [disabled]="regForm.Institute_form.disabled">Update</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row pt-3">
+  <div class="col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+    <div class="card card-body">
+      <form [formGroup]="urlForm" (ngSubmit)="onUploadUrl()">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="block-header">
+              <div class="row ">
+                <div class="col-sm-6 ">
+                  <h5 class="h5-class">
+                    <strong>Institute web URL settings</strong>
+                  </h5>
+                </div>
+                <div class="col-sm-6 ">
+                  <button class="btn btn-sm btn-color pull-right" type="button" (click)="urlEdit()" [hidden]="urlForm.enabled">
+                    Edit
+
+                  </button>
+                  <!-- <button class="btn-icon pull-right btn-color" type="button" (click)="urlEdit()" [hidden]="urlForm.enabled">
+                    <mat-icon aria-label="Edit">edit</mat-icon> 
+                  </button> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 pt-2" [hidden]="!urlForm.enabled">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 ">
+
+                  <mat-form-field>
+                    <input matInput type="url" maxlength="100" placeholder="Institute Website" formControlName="i_url">
+                    <span matSuffix>
+                      <i class=""></i>
+                    </span>
+                  </mat-form-field>
+
+
+                </div>
+              </div>
+              <div class="row" [hidden]="true">
+                <div class="col-sm-11 col-md-11 ">
+                  <mat-form-field>
+                    <input matInput type="url" placeholder="Institute map url" 
+                    [(ngModel)]="mapKey" maxlength="100"
+                     [ngModelOptions]="{standalone: true}">
+                    <mat-hint> copy google map embeded html content </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div #map class="pt-2" [hidden]="true">
+                <!-- <a [href]="mapKey" target="_blank">Click here for map details</a> -->
+                {{ getHtmlContent() }}
+                <!-- <iframe [src]="sanitize(mapKey)"  target="_parent"
+                    width="600" height="450" frameborder="0" style="border:0" allowfullscreen
+                    ></iframe>                  -->
+              </div>
+            </div>
+            <div class="col-sm-12 pt-2" [hidden]="!urlForm.enabled">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 ">
+
+                  <mat-form-field>
+                    <input matInput type="url" maxlength="100" placeholder="Institute's Facebook URL" formControlName="f_url">
+                    <span matSuffix>
+                      <i class="fa fa-facebook-square"></i>
+                    </span>
+                  </mat-form-field>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-sm-12 pt-2" [hidden]="!urlForm.enabled">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 ">
+                  <mat-form-field>
+                    <input matInput type="url" maxlength="100" placeholder="Institute's Google plus URL" formControlName="g_url">
+                    <span matSuffix>
+                      <i class="fa fa-google-plus-square "></i>
+                    </span>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 pt-2" [hidden]="urlForm.enabled">
+              <div class="form-inline" [hidden]="iUrl == ''">
+                <p> click here for
+                  <u>
+                    <a href="{{iUrl}}" target="_blank">Institute Url</a>
+                  </u>
+                </p>
+              </div>
+              <div class="form-inline" [hidden]="fUrl == ''">
+                <p> click here for
+                  <u>
+                    <a href="{{fUrl}}" target="_blank">Institute's FB Url</a>
+                  </u>
+                </p>
+              </div>
+              <div class="form-inline" [hidden]="gUrl == ''">
+                <p> click here for
+                  <u>
+                    <a href="{{gUrl}}" target="_blank">Institute's GogglePlus Url</a>
+                  </u>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 text-center pt-2" [hidden]="!urlForm.enabled">
+            <button mat-button type="button" class="btn btm-md btn-color m-2" (click)="OnUrlformCacel()">Cancel</button>
+            <button mat-button type="submit" class="btn btn-md btn-color">{{ btnUrl }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row pt-3">
+  <div class="col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+    <div class="card card-body">
+      <div class="row pt-2">
+        <div class="col-sm-4 col-md-3 ">
+          <input type="file" accept=".jpg,.png,.jpeg" placeholder="upload file" (change)="handleFileInput($event)" #filelogo style="display:none">
+          <button type="button" (click)="filelogo.click()" mat-button class="btn btn-sm btn-color btn-register ">{{ logobtnText }}</button>
+          <p class="help-block">
+            <small> Allowed File type jpg | png | jpeg
+            </small>
+          </p>
+        </div>
+        <div class="col-sm-8 col-md-8 text-center">
+          <img [src]="logo_file" height="100px" *ngIf="logo_file !== null">
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-sm-12 text-center">
+          <button mat-button class="btn btn-md m-2 btn-color" (click)="onlogoCancel()" [hidden]="files == null">Cancel</button>
+          <button mat-button class="btn btn-md btn-color" (click)="logoUpload()" [hidden]="files == null">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

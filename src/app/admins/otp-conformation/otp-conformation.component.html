@@ -1,0 +1,52 @@
+<!-- <app-topbar></app-topbar> -->
+
+<div class="full">
+  <section class="content">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center">
+          <!-- <span class="fa fa-check-circle fa-2x p-2" style="color:green"> Email verification done successfully
+          </span> -->
+        </div>
+      </div>
+      <div class="col-sm-12" *ngIf="otpflag">
+        <div class="text-center">
+          <span class="fa fa-check-circle fa-2x p-2" style="color:green"></span>
+          OTP verification done successfully
+        </div>
+      </div>
+      <hr>
+      <div class="col-sm-12 col-md-6 offset-sm-0 offset-md-3" *ngIf="!otpflag">
+        <div class="card card-body">
+          <div class="block-header">
+            <strong> Complete mobile verification</strong>
+          </div>
+          <div class="pt-2 text-center">           
+            <button class="btn btn-sm btn-color" (click)="resendOtp()" type="button" [hidden]="resendBtn">Resend</button>
+            <span [hidden]="timerFlag">{{ timeLeft }} Seconds Left.... </span>
+          </div>
+          <div class="col-sm-12">
+            <div class="p-2">
+              <mat-form-field>
+                <input matInput placeholder="Otp" [formControl]="txtotp" maxlength="4" (keypress)="commonObj.onlyNumberKey" autocomplete="off"
+                  required>
+                <mat-error *ngIf="txtotp.invalid">
+                  <span *ngIf="txtotp.hasError('required')">OTP required</span>
+                  <span *ngIf="txtotp.error?.minLength"> OTP length should be 4</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="text-center">
+              <button mat-button class="btn btn-sm btn-color" (click)="otpConfirm()" type="button" [hidden]="txtotp.invalid">Submit</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+  </section>
+  </div>
+  <app-footer></app-footer>

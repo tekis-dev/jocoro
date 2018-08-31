@@ -1,0 +1,359 @@
+<div class="page-height">
+
+  <div class="row">
+    <!--  bacthes  -->
+    <div class="col-sm-4">
+      <!-- <div class="card card-body">
+        <div class="form-inline">
+          <div class="icon">
+            <i class="fa fa-line-chart"></i>
+
+          </div>
+          <div class="title text-center">
+            <strong>Batches & demos</strong>
+            <br>
+            <small>200 Bacthes</small>
+          </div>
+        </div>
+      </div>
+    -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+
+            <div class="icon m-2">
+              <i class="fa fa-line-chart"></i>
+
+            </div>
+            <div class="title text-center m-1">
+              <strong>Batches & Demos</strong>
+              <br>
+              <small>{{batch_counts.batches_active + batch_counts.batches_inactive}} Bacthes</small>
+            </div>
+
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <div class="list-group list-group-flush">
+          <a class="list-group-item list-group-item-action ">Active
+            <span class="badge badge-success badge-pill pull-right">{{batch_counts.batches_active}}
+
+            </span>
+          </a>
+          <a class="list-group-item list-group-item-action ">Non Active
+            <span class="badge badge-danger badge-pill pull-right">{{batch_counts.batches_inactive}}
+
+            </span>
+          </a>
+        </div>
+
+        <mat-action-row>
+          <a class="btn btn-color btn-sm" [routerLink]="['../batches']">View Details</a>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </div>
+
+    <!--  Courses  -->
+    <div class="col-sm-4">
+      <!-- <div class="card card-body">
+          <div class="form-inline">
+            <div class="icon">
+              <i class="fa fa-line-chart"></i>
+  
+            </div>
+            <div class="title text-center">
+              <strong>Batches & demos</strong>
+              <br>
+              <small>200 Bacthes</small>
+            </div>
+          </div>
+        </div>
+      -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+
+            <div class="icon m-2">
+              <i class="fa fa-line-chart"></i>
+
+            </div>
+            <div class="title text-center m-1">
+              <strong>Courses</strong>
+              <br>
+              <small> {{ course_counts.courses_active + course_counts.courses_inactive }} courses</small>
+            </div>
+
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <div class="list-group list-group-flush">
+          <a class="list-group-item list-group-item-action ">Active
+            <span class="badge badge-success badge-pill pull-right">{{ course_counts.courses_active }}
+
+            </span>
+          </a>
+          <a class="list-group-item list-group-item-action ">Non Active
+            <span class="badge badge-danger badge-pill pull-right">{{ course_counts.courses_inactive}}
+
+            </span>
+          </a>
+        </div>
+
+        <mat-action-row>
+            <a class="btn btn-color btn-sm" [routerLink]="['../course']">View Details</a>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </div>
+
+    <!--  Faculty  -->
+    <div class="col-sm-4">
+      <!-- <div class="card card-body">
+            <div class="form-inline">
+              <div class="icon">
+                <i class="fa fa-line-chart"></i>
+    
+              </div>
+              <div class="title text-center">
+                <strong>Batches & demos</strong>
+                <br>
+                <small>200 Bacthes</small>
+              </div>
+            </div>
+          </div>
+        -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+
+            <div class="icon m-2">
+              <i class="fa fa-line-chart"></i>
+
+            </div>
+            <div class="title text-center m-1">
+              <strong> Faculty </strong>
+              <br>
+              <small>{{ faculty_counts.faculty_active + faculty_counts.faculty_inactive }} Faculty</small>
+            </div>
+
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <div class="list-group list-group-flush">
+          <a class="list-group-item list-group-item-action ">Active
+            <span class="badge badge-success badge-pill pull-right"> {{ faculty_counts.faculty_active }}
+
+            </span>
+          </a>
+          <a class="list-group-item list-group-item-action ">Non Active
+            <span class="badge badge-danger badge-pill pull-right"> {{ faculty_counts.faculty_inactive }}
+
+            </span>
+          </a>
+        </div>
+
+        <mat-action-row>
+            <a class="btn btn-color btn-sm" [routerLink]="['../faculty']">View Details</a>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </div>
+
+  </div>
+
+  <div class="pt-3">
+    <div class="row">
+      <!--  Enquiry  -->
+      <div class="col-sm-4">
+
+        <!-- <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+
+              <div class="icon mt-2">
+                <i class="fa fa-line-chart"></i>
+
+              </div>
+              <div class="title text-center">
+                <strong>Batches & demos</strong>
+                <br>
+                <small>{{ enquiry_counts.enquiry_active + enquiry_counts.enquiry_inactive}}</small>
+              </div>
+
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action ">Active
+              <span class="badge badge-success badge-pill pull-right">{{ enquiry_counts.enquiry_active }}
+
+              </span>
+            </a>
+            <a class="list-group-item list-group-item-action ">Non Active
+              <span class="badge badge-danger badge-pill pull-right"> {{ enquiry_counts.enquiry_inactive}}
+
+              </span>
+            </a>
+          </div>
+
+          <mat-action-row>
+            <a class="btn btn-color btn-sm" [routerLink]="['./batches']">View Details</a>
+          </mat-action-row>
+        </mat-expansion-panel> -->
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="row">
+
+    <div class="col-sm-6 col-md-6 col-xl-4 pb-3">
+      <div class="card text-center">
+        <div class="card-header">
+          <span>
+            <i class=""></i>
+          </span>
+          <h4 class="card-title">Batches & Demos</h4>
+        </div>
+        <div class="card-body">
+
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-success badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-danger badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <a class="btn btn-color btn-sm ">Go Batches & Demos</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-xl-4 pb-3">
+      <div class="card text-center">
+        <div class="card-header">
+          <span>
+            <i class=""></i>
+          </span>
+          <h4 class="card-title">Offered Course</h4>
+        </div>
+        <div class="card-body">
+
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-success badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-danger badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <a class="btn btn-color btn-sm ">Go Offered Course</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-xl-4 pb-3">
+      <div class="card text-center">
+        <div class="card-header">
+          <span>
+            <i class=""></i>
+          </span>
+          <h4 class="card-title">Enquiry List</h4>
+        </div>
+        <div class="card-body">
+
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-success badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-danger badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <a class="btn btn-color btn-sm ">Go Enquiry List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-xl-4 pb-3">
+      <div class="card text-center">
+        <div class="card-header">
+          <span>
+            <i class=""></i>
+          </span>
+          <h4 class="card-title">Faculty List</h4>
+        </div>
+        <div class="card-body">
+
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-success badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-danger badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <a class="btn btn-color btn-sm ">Go to Faculty list</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-xl-4 pb-3">
+      <div class="card text-center">
+        <div class="card-header">
+          <span>
+            <i class=""></i>
+          </span>
+          <h4 class="card-title">Gallery</h4>
+        </div>
+        <div class="card-body">
+
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-success badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+            <a class="list-group-item list-group-item-action ">Sales
+              <span class="badge badge-danger badge-pill pull-right">22%
+                <i class="fa fa-arrow-up ml-1"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <a class="btn btn-color btn-sm ">Go Gallery</a>
+        </div>
+      </div>
+    </div>
+
+  </div> -->

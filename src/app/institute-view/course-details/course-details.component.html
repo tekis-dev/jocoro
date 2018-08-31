@@ -1,0 +1,54 @@
+<div class="container course-details panel-body">
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-lg-12 text-center">
+            <h3>{{ courseDetails.course_name }}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-lg-8 course-content">
+
+            <h4>course Content:</h4>
+            <div [innerHtml]="courseDetails.course_content">
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="text-center">
+                <img [src]="instiServObj.url + '/images/' + courseDetails.course_logo" [alt]="courseDetails.course_name" class="course-logo">
+
+            </div>
+
+            <br>
+            <div class="widget course-left-details">
+                <ul>
+                    <li>
+                        <label>Course Type :</label>
+                        <span *ngIf="courseDetails.course_type"> {{ courseDetails.course_type }}</span>
+                    </li>
+                    <li>
+                        <label>Duration :</label>
+                        <span *ngIf="courseDetails.duration_months"> {{ courseDetails.duration_months }} Months,</span>
+                        <span *ngIf="courseDetails.duration_months">{{ courseDetails.duration_days }} Days</span>
+                    </li>
+                    <!-- <li>
+                        <label>Fee Type :</label><span *ngIf="courseDetails.fee_name"> {{ courseDetails.fee_name }} </span><span *ngIf="courseDetails.duration_months">{{ courseDetails.min_fee }}</span><span *ngIf="courseDetails.max_fee"> To {{ courseDetails.max_fee }}</span>
+                    </li> -->
+                    <li>
+                        <label>Sub Courses :</label>
+                        <span *ngIf="courseDetails.sub_courses"> {{ courseDetails.sub_courses }}</span>
+                    </li>
+                    <li>
+                        <label>Qualification :</label>
+                        <span *ngIf="courseDetails.qualification ; else quali"> {{ courseDetails.qualification }}</span>
+                        <ng-template #quali>
+                            <span> None </span>
+                        </ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <button class="btn btn-success" (click)="getOnBatchList(courseDetails.cid)">Show Batches</button>
+    </div>
+</div>

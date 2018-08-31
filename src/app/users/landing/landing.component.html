@@ -1,0 +1,75 @@
+<div id="home">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-6 offset-md-3">
+                <div class="input-group">
+                    <div class="input-group-btn search-panel">
+                        <select class="btn btn-default dropdown-toggle search-drp " (change)="onSearchDrpChange($event.target.value)">
+                                  <option value="0" selected>All</option>
+                                  <option value="1">Course</option>
+                                  <option value="2">Institute</option>
+                                  <option value="3">Hostel</option>
+                                  <option value="4">Job</option>
+                              </select>
+                    </div>
+                    <input type="text" class="form-control" [formControl]="searchKeyword" (input)="_filter($event.target.value)" placeholder="Search term...">
+                    <!-- <span class="input-group-btn">
+                              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                  </span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container-fluid">
+        <div class="row search-category courses" *ngIf="searchCategory==0 || searchCategory==1">
+            <div class="offset-md-1 col-md-10">
+                <section>
+                    <div class="widget search-by course">
+                        <h4>Courses :</h4>
+                        <div class="border clearfix">
+                            <ul>
+                                <li *ngFor="let course of filteredCourseOptions" (click)="onGetInstitutesList(course.course_id,course.course_name) ">
+                                    <a>{{ course.course_name }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row search-category institute" *ngIf="searchCategory==0 || searchCategory==2">
+            <div class="offset-md-1 col-md-10">
+                <section>
+                    <div class="widget search-by institute">
+                        <h4>Institutes :</h4>
+                        <div class="border clearfix">
+                            <ul>
+                                <li *ngFor="let institute of filteredInstituteOptions " (click)="onGetInstitutesDetails(institute.iid,institute.institute_name) ">
+                                    <a>{{ institute.institute_name }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row search-category location" *ngIf="searchCategory==0 || searchCategory==3">
+            <div class="offset-md-1 col-md-10">
+                <section>
+                    <div class="widget search-by clearfix location">
+                        <h4>Location :</h4>
+                        <div class="border clearfix">
+                            <ul>
+                                <li *ngFor="let location of filteredLocationOptions ">
+                                    <a>{{ location.city_name }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,191 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 comp-left-filter">
+                <div class="filter-section " data-filtername="Brand" data-displayname="Brand" data-isvisible="true">
+
+                    <div class="filter-name-section filter-type clearfix">
+                        <div class="filter-type-name lfloat">
+                            <span class="filter-dot hidden"></span> Brand
+                            <span class="filter-count hidden">(0)</span>
+                            <input type="hidden" class="js-filter-count" value="0">
+                            <span class="filter-clear hidden" data-displaytype="checkBox">
+                  Clear
+                </span>
+                        </div>
+                        <div class="filter-accordian"><i class="sd-icon sd-icon-minus"></i></div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="filter-content " style="height: auto;">
+                        <i class="sd-icon sd-icon-search-under-catagory search-icon" style="position: absolute;"></i>
+                        <input type="text" readonly="readonly" class="sd-input js-searchable-box" placeholder="Search by Brand" data-name="filterSearch-Brand" data-filtername="Brand">
+                        <div class="filter-inner " data-name="Brand">
+                            <div class="filters-list sdCheckbox  ">
+                                <input class="filter-value" type="checkbox" value="13th Avenue">
+                                <label for="Brand-13th Avenue"> 
+                <a class="filter-name hashAdded" href="">
+                  13th Avenue</a>
+                <span class="filter-prod-count">16</span>
+                </label>
+                            </div>
+                            <div class="filters-list sdCheckbox">
+                                <input class="filter-value" type="checkbox" value="1st Bay">
+                                <label for="Brand-1st Bay"> 
+                <a class="filter-name hashAdded" href="">
+                  1st Bay</a>
+                <span class="filter-prod-count">43</span>
+                </label>
+                            </div>
+                            <div class="filters-list sdCheckbox">
+                                <input class="filter-value" type="checkbox" value="268 BCE">
+                                <label for="Brand-268 BCE"> 
+                <a class="filter-name hashAdded" href="">
+                  268 BCE</a>
+                <span class="filter-prod-count">1</span>
+                </label>
+                            </div>
+                            <div class="filters-list sdCheckbox  ">
+                                <input class="filter-value" type="checkbox" value="27Ashwood">
+                                <label for="Brand-27Ashwood"> 
+                <a class="filter-name hashAdded" href="">
+                  27Ashwood</a>
+                <span class="filter-prod-count">24</span>
+                </label>
+                            </div>
+                            <div class="filters-list sdCheckbox  ">
+                                <input class="filter-value" type="checkbox" value="27STREET">
+                                <label for="Brand-27STREET"> 
+                <a class="filter-name hashAdded" href="">
+                  27STREET</a>
+                <span class="filter-prod-count">4</span>
+                </label>
+                            </div>
+                        </div>
+                        <button class="view-more-button btn btn-line btn-theme-secondary js-view-more" href="" data-filtername="Brand">View More </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="search-list">
+                    <div class="search-group">
+                        <!-- <div id="search_sorting_view_bar" class="clearfix">
+                              <form class="woocommerce-ordering" method="get">
+                                  Sort by
+                                  <select name="orderby" class="orderby select_box_it">
+          <option value="menu_order" selected="selected">Default sorting</option>
+          <option value="popularity">Sort by popularity</option>
+          <option value="rating">Sort by average rating</option>
+          <option value="date">Sort by newness</option>
+          <option value="price">Sort by price: low to high</option>
+          <option value="price-desc">Sort by price: high to low</option>
+        </select>
+                              </form>
+
+                          </div> -->
+                        <div class="rows ember-view">
+                            <!-- columns ember-view/rows ember-view -->
+                            <div *ngFor="let InstList of pagedItems" class="search-item ember-view">
+                                <!-- list code-->
+                                <div *ngIf="InstList.verified == 1" class="ribbon-horizontal-top course-status-verified">
+                                    Verified
+                                </div>
+                                <div *ngIf="InstList.verified == 0" class="ribbon-horizontal-top course-status-notverified">
+                                    Not Verified
+                                </div>
+                                <div class="search-image-wrapper">
+                                    <a routerLink="" class="search-image">
+                                        <picture>
+                                            <img src="https://open.sap.com/files/c75c4e0b-69cc-4cd9-ae87-64e1a335e0c6?size=medium">
+                                        </picture>
+                                    </a>
+                                </div>
+                                <div class="search-info-wrapper">
+                                    <div class="search-info">
+                                        <div class="search-title">
+                                            <a (click)="onGetCourseDetails(InstList.iid,InstList.institute_name)">{{ InstList.institute_name }}</a>
+                                        </div>
+                                        <div class="seacrh-tech">{{ InstList.course_name }}</div>
+                                        <div class="search-shortinfo">
+                                            <span class="shortinfo search-date">
+                                            <span class="vmiddle"></span>
+                                            <span class="ml5">
+                                                <span class="ember-view">  
+</span>
+                                            </span>
+                                            </span>
+                                            <span class="shortinfo search-language">
+  <span class="vmiddle"></span>
+                                            <span class="ml5"></span>
+                                            </span>
+                                            <!---->
+                                            <!---->
+                                        </div>
+                                        <div class="search-description">
+                                            <div class="ember-view">
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="search-actions">
+                                        <a routerLink="" class="search-action-button search-action-details">
+Show course details
+</a>
+                                        <!----><a routerLink="" data-method="get" class="search-action-button search-action-enroll">
+    Enroll me for this course
+  </a>
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                </div>
+                                <!-- list code -->
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="navigation">
+                        <!-- <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">02</a></li>
+                            <li><a href="#">03</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                        </ul> -->
+                        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+
+                            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                <a (click)="setPage(1)">First</a>
+                            </li>
+
+                            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                            </li>
+
+                            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                <a (click)="setPage(page)">{{page}}</a>
+                            </li>
+
+                            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                            </li>
+
+                            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                <a (click)="setPage(pager.totalPages)">Last</a>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+
+        </div>
+    </div>
+</section>

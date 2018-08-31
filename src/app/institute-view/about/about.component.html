@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="toppad">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center">
+                        <h3 class="panel-title">{{ instiServObj.InstituteDetails.institute_name }}</h3>
+                    </div>
+                    <div class="panel-body clearfix">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4><u>About Us</u>:</h4>
+                                <div [innerHTML]="instiServObj.InstituteDetails.about_institute"></div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <!-- <button [routerLink]="['../','course']" class="btn btn-primary">Offered Courses</button>
+                                     <button [routerLink]="['../','enquiry']" class="btn btn-info">Enquiry</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 panel-body">
+            <div class="mb20 clearfix">
+                <h4>
+                    <u>Courses</u> :
+                </h4>
+                <button *ngIf='instiServObj.CourseDetails.length>4' [routerLink]="['../','course']" class="btn btn-info pull-right view-all">
+                    See All
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div *ngIf="!instiServObj.CourseDetails.length; else CoursesElseBlock" class="text-center">No Courses Found...</div>
+            <ng-template #CoursesElseBlock>
+                <ul class="course-list">
+                    <ng-container *ngFor="let courseItem of instiServObj.CourseDetails; let i=index">
+                        <li class="course-item" *ngIf="i<4">
+                            <div class="course-img-wrapper">
+                                <img [src]="instiServObj.url + '/images/' + courseItem.course_logo" class="img-responsive" [alt]="courseItem.course_name">
+                                <div class="view">
+                                    <a (click)=onCourseView(courseItem.cid,courseItem.course_name) class="view-details">View</a>
+                                    <!-- <a href="institute-course-enroll.html" class="view-details">Enroll</a> -->
+                                </div>
+                            </div>
+                            <div class="title">
+                                <h3>
+                                    <a (click)=onCourseView(courseItem.cid,courseItem.course_name)>{{courseItem.course_name}}</a>
+                                </h3>
+                            </div>
+                            <div class="sticker sticker-new"></div>
+                        </li>
+                    </ng-container>
+                </ul>
+
+            </ng-template>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 panel-body">
+            <div class="mb20 clearfix">
+                <h4><u>Gallery</u> :</h4>
+                <button *ngIf='instiServObj.GalleryDetails.length>4' [routerLink]="['../','gallery']" class="btn btn-info pull-right">
+                    See All
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div *ngIf="!instiServObj.GalleryDetails.length; else GalleryElseBlock" class="text-center">No Courses Found...</div>
+            <ng-template #GalleryElseBlock>
+                <ul class="course-list">
+                    <ng-container *ngFor="let galleryItem of instiServObj.GalleryDetails; let i=index">
+
+                        <li class="course-item " *ngIf="i<4">
+                            <div class="course-img-wrapper">
+                                <img [src]="instiServObj.url + '/images/' + galleryItem.img_file_name" class="img-responsive" [alt]="galleryItem.img_file_name">
+                            </div>
+                            <div class="title ">
+                                <h3>{{galleryItem.title}}</h3>
+                            </div>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

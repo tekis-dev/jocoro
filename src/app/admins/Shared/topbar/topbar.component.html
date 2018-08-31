@@ -1,0 +1,103 @@
+<header class="main-header mat-elevation-z8">
+
+    <a class="logo" (click)="home()">
+        <img src="../assets/img/institute_default_logo.png">
+        <!-- <span class="logo-lg">
+            <b>Tekis</b>MARG</span> -->
+    </a>
+    <nav class="nav navbar ">
+        <div class="pull-left">
+            <a class="sidebar-toggle" role="button" (click)="onSidebartoggle()" [hidden]=" !mobileQuery.matches">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+        </div>
+        <div class="text-center">
+            <a (click)="home()">
+                <img [src]="masterObj.logo" [hidden]="masterObj.logo == null" height="30px">
+            </a>
+            <span [hidden]="masterObj.headerName == ''">
+                <b>{{masterObj.headerName}} </b>
+            </span>
+        </div>
+        <div class="navbar-custom-menu">
+            
+             <button (click)="onpreview()">
+                <!-- <mat-icon>settings</mat-icon> -->
+                Web view
+                </button>
+            
+            <button mat-button [matMenuTriggerFor]="menu" class="user" [hidden]="!masterObj.userId">
+                Profile
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" yPosition="below" [overlapTrigger]="false">
+
+                <button mat-menu-item (click)="onEditProfile()">
+                    <!-- <mat-icon>settings</mat-icon> -->
+                    Edit Profile
+                </button>
+                <!-- <button mat-menu-item (click)="onpreview()">
+                    Institute Preview
+                </button>
+                -->
+                <button mat-menu-item (click)="onLogout()">
+                    Logout
+                </button>
+
+            </mat-menu>
+            <!-- <ul class="nav navbar-nav" [hidden]="!masterObj.userId">
+                <li class="dropdown user user-menu">
+                    <a class="dropdown-toggle">
+                        <img src="./assets/img/user.png" class="user-image" alt="User Image">
+                        <span class="hidden-xs">{{ masterObj.userName }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="user-body">
+                            <a routerLink="/user-profile">
+                                <span>Edit Profile</span>
+                            </a>
+                        </li>
+                        <li class="user-footer">
+                            <a routerLink="/change-password">
+                                <span>Change password</span>
+                            </a>
+                        </li>
+                        <li class="user-footer">
+                            <a (click)="onLogout()">
+                                <span>logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul> -->
+        </div>
+    </nav>
+</header>
+
+<!-- <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+       <span  class="sr-only"><mat-icon>menu</mat-icon></span> 
+    </button>
+    <button mat-button>
+        <mat-icon class="mr-1">home</mat-icon>Home
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" >
+        <button mat-menu-item>
+            <mat-icon>account_circle</mat-icon>
+            My Account
+        </button>
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+           Settings
+        </button>
+        <button mat-menu-item>
+            <mat-icon>money</mat-icon>
+            <span>Billing</span>
+        </button>
+    </mat-menu>
+   
+</mat-toolbar> -->

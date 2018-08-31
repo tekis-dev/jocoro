@@ -1,0 +1,141 @@
+.hostel-facilites-data h4 {
+    padding-top: 20px;
+}
+
+.hostel-facilities {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.hostel-facilities>li {
+    float: left;
+    position: relative;
+    margin-right: 7px;
+    margin-bottom: 7px;
+}
+
+.hostel-facilities>li:hover>i {
+    border-color: #d66f11
+}
+
+.hostel-facilities>li>i {
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    line-height: 35px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+    font-size: 23px;
+    display: block;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #686868
+}
+
+.hostel-facilities-dark>li>i {
+    background: #4d4d4d;
+    border: 1px solid #333;
+    color: #fff
+}
+
+.hostel-facilities-rentals {
+    margin-top: 10px
+}
+
+.hostel-facilities-rentals>li {
+    margin-bottom: 0
+}
+
+.booking-item-car-title {
+    margin-top: 7px;
+    font-size: 12px;
+    line-height: 1em;
+    margin-bottom: 0
+}
+
+.hostel-facilities-sign>li {
+    padding-bottom: 15px
+}
+
+.hostel-facilities-small>li {
+    margin-right: 5px;
+    margin-bottom: 5px
+}
+
+.hostel-facilities-small>li>i {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px
+}
+
+.hostel-facilities-small>li>i>img {
+    width: 20px
+}
+
+.hostel-facilities-expand {
+    display: block
+}
+
+ul.hostel-facilities.hostel-facilities-expand.mb30.clearfix {}
+
+.hostel-facilities-expand .booking-item-feature-title {
+    position: relative;
+    line-height: 37px;
+    margin-left: 7px;
+    color: #686868
+}
+
+.hostel-facilities-expand>li {
+    float: none;
+    display: block;
+    overflow: hidden;
+}
+
+.hostel-facilities-expand>li:after {
+    /* content:'.'; */
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.hostel-facilities-expand>li>i {
+    float: left
+}
+
+.hostel-facilities-2-col>li {
+    float: left;
+    width: 50%;
+    margin-right: 0
+}
+
+.table-hostel-facilities {
+    font-size: 12px
+}
+
+.table-hostel-facilities .hostel-facilities-type {
+    text-align: center
+}
+
+.table-hostel-facilities .hostel-facilities-type>i {
+    display: block;
+    font-size: 25px;
+    color: #626262;
+    margin-bottom: 2px
+}
+
+.table-hostel-facilities .hostel-facilities-type>small {
+    line-height: 1em;
+    display: block
+}
+
+.table-hostel-facilities .hostel-facilities-title {
+    width: 22%;
+    color: #565656
+}

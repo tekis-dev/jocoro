@@ -1,0 +1,65 @@
+<!-- <app-topbar (sidebarToggle)="snav.toggle()"></app-topbar> -->
+
+<header class="main-header mat-elevation-z8">
+
+    <a class="logo" (click)="home()">
+        <img src="../assets/img/institute_default_logo.png">
+        <!-- <span class="logo-lg">
+          <b>Tekis</b>MARG</span> -->
+    </a>
+    <nav class="nav navbar ">
+        <div class="pull-left">
+            <a class="sidebar-toggle" role="button" (click)="snav.toggle()" [hidden]=" !mobileQuery.matches">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+        </div>
+
+        <div class="navbar-custom-menu">
+            <button mat-button [matMenuTriggerFor]="menu" class="user">
+                Profile
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" yPosition="below" [overlapTrigger]="false">
+
+                <button mat-menu-item (click)="onEditProfile()">
+
+                    Edit Profile
+                </button>
+
+                <button mat-menu-item (click)="onLogout()">
+                    Logout
+                </button>
+
+            </mat-menu>
+
+        </div>
+    </nav>
+</header>
+<mat-sidenav-container [style.marginTop.px]="mobileQuery.matches ? 0 : 0" fullscreen>
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="0"
+        [opened]="!mobileQuery.matches && sideFlag" [style.marginTop.px]="mobileQuery.matches ? 0 : 50">
+        <aside>
+            <section class="sidebar pt-3">
+                <ul class="sidebar-menu">
+                    <li class="treeview" *ngFor="let item of presentMenu" [hidden]="item.hide" routerLinkActive="active">
+                        <a [routerLink]="item.url">
+                            <i [ngClass]="item.icon"></i>
+                            <span>{{item.menuName}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="content-wrapper">
+            <!-- <app-breadcrumb></app-breadcrumb> -->
+            <mc-breadcrumbs></mc-breadcrumbs>
+            <section class="content" autoscroll="true">
+                <router-outlet ></router-outlet>
+            </section>
+        </div>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

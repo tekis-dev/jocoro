@@ -1,0 +1,40 @@
+<div class="container course-details">
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-lg-8 course-content">
+            <h4>About Course/Batch Content:</h4>
+            <div [innerHtml]="batchDetails.course_content">
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="widget course-left-details">
+                <ul >
+                    <li>
+                        <label>Course Name :</label><span *ngIf="batchDetails.course_name"> {{ batchDetails.course_name }}</span>
+                    </li>
+                    <li>
+                        <label>Course Type :</label><span *ngIf="batchDetails.teaching_mode">
+                             {{ techdeatils(batchDetails.teaching_mode) }}</span>
+                    </li>
+                    <li>
+                        <label>Duration :</label><span *ngIf="batchDetails.duration_months"> {{ batchDetails.duration_months }} Months,</span><span *ngIf="batchDetails.duration_months">{{ batchDetails.duration_days }} Days</span>
+                    </li>
+                    <li>
+                        <label>Fee Type :</label><span *ngIf="batchDetails.fee_name"> {{ batchDetails.fee_name }}  </span><span *ngIf="batchDetails.fee_from">Rs. {{ batchDetails.fee_from }}</span><span *ngIf="batchDetails.to_fee"> To {{ batchDetails.to_fee }}</span>
+                    </li>
+                    <li>
+                        <label>Session Type :</label><span *ngIf="batchDetails.session_name"> {{ batchDetails.session_name }}</span>
+                    </li>
+                    <li>
+                        <label>Start From :</label><span *ngIf="batchDetails.startson"> {{ batchDetails.startson }}</span>
+                    </li>
+                    <li>
+                        <label>Demo From :</label><span *ngIf="batchDetails.demo_from_date"> {{ batchDetails.demo_from_date }}</span>
+                    </li>
+                    <li>
+                        <label>Demo To :</label><span *ngIf="batchDetails.demo_to_date"> {{ batchDetails.demo_to_date }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
